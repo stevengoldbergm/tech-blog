@@ -2,6 +2,10 @@ const router = require('express').Router();
 const { Post, User } = require('../models');
 const withAuth = require('../utils/auth');
 
+// router.get('/', async (req, res) => {
+//   res.render('main', {layout: 'index'})
+// });
+
 router.get('/', async (req, res) => {
   try {
     // Get all posts and JOIN with user data
@@ -18,7 +22,8 @@ router.get('/', async (req, res) => {
     const posts = postData.map((post) => post.get({ plain: true }));
 
     // Pass serialized data and session flag into template
-    res.render('homepage', { 
+    res.render('main', { 
+      layout: 'index',
       posts, 
       logged_in: req.session.logged_in 
     });

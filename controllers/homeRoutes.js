@@ -2,14 +2,10 @@ const router = require('express').Router();
 const { Post, User } = require('../models');
 const withAuth = require('../utils/auth');
 
-// router.get('/', async (req, res) => {
-//   res.render('main', {layout: 'index'})
-// });
-
 router.get('/', async (req, res) => {
   try {
     // Get all posts and JOIN with user data
-    const post = await Post.findAll({
+    const postData = await Post.findAll({
       include: [
         {
           model: User,
@@ -17,13 +13,16 @@ router.get('/', async (req, res) => {
         },
       ],
     });
+    // console.log(post); // working
 
     // Serialize data so the template can read it
     const posts = postData.map((post) => post.get({ plain: true }));
+    // console.log(posts); // working
+    console.log(posts)
+    console.log('logged in?',req.session.logged_in)
+    
 
-    // Pass serialized data and session flag into template
     res.render('main', { 
-      layout: 'index',
       posts, 
       logged_in: req.session.logged_in 
     });
@@ -32,6 +31,7 @@ router.get('/', async (req, res) => {
   }
 });
 
+// Get specific post by id
 router.get('/post/:id', async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {

@@ -1,10 +1,6 @@
-const editButtonHandler = async (event) => {
-    if (event.target.hasAttribute('data-id') && event.target.classList.contains("btn-info")) {
-        const id = event.target.getAttribute('data-id');
-        document.location.replace(`/posts/edit/${id}`);
-    }
-  };
+const eventTest = (event) => {
+    event.preventDefault();
 
-document
-.querySelector('.post-list')
-.addEventListener('click', editButtonHandler);
+    console.log('\n\n\nThe code to update a post goes here\n\n\n')
+}
+document.querySelector('.form').addEventListener('submit', eventTest);

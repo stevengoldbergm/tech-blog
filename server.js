@@ -35,6 +35,7 @@ app.use(session(sess));
 
 // Inform Express.js on which template engine to use
 app.set('view engine', 'handlebars');
+
 // app.engine('handlebars', hbs.engine); // Removed because I don't know what or why this is supposed to work.
 app.engine('handlebars', handlebars({
   layoutsDir: `${__dirname}/views/layouts`,

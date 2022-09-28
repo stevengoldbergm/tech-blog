@@ -18,7 +18,7 @@
 
   ## Usage
   
-  Try out the launched application: [HERE!]()
+  Try out the launched application: [HERE!](https://tech-blog-stevengoldbergm.herokuapp.com/)
 
   To use the Tech-Blog, you need an account! 
   

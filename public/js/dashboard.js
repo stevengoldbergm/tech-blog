@@ -4,11 +4,13 @@ const newPostHandler = async (event) => {
     const title = document
         .querySelector('#post-title')
         .value
-        .trim(); // used to be project-name
+        .trim();
     const text = document
         .querySelector('#post-text')
         .value
-        .trim(); // used to be project-desc
+        .trim();
+
+    console.log("\n\n", title, text, "\n\n")
   
     if (title && text) {
       const response = await fetch(`/api/posts`, {
@@ -20,7 +22,7 @@ const newPostHandler = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace('/post-history');
+        document.location.replace('/dashboard');
       } else {
         alert('Failed to create post!');
       }
@@ -28,7 +30,7 @@ const newPostHandler = async (event) => {
   };
   
   const delButtonHandler = async (event) => {
-    if (event.target.hasAttribute('data-id')) {
+    if (event.target.hasAttribute('data-id') && event.target.classList.contains("btn-danger")) {
       const id = event.target.getAttribute('data-id');
   
       const response = await fetch(`/api/posts/${id}`, {
@@ -36,7 +38,7 @@ const newPostHandler = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace('/post-history');
+        document.location.replace('/dashboard');
       } else {
         alert('Failed to delete post!');
       }

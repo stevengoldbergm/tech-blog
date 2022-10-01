@@ -1,14 +1,21 @@
 <!-- Loop over each object in the posts array -->
 {{#each posts as |post| }}
-<div class="row mb-4 post">
-  <div class="col-md-5">
-    <h2>
-      <a href="/post/{{post.id}}">{{post.title}}</a>
-    </h2>
-    <p>
-        Posted by {{post.user.name}} on {{format_date post.date_created}}
-    </p>
-  </div>
 
+<div class="card">
+  <div class="card-header bg-secondary">
+    <h6 class="pl-2 text-light">
+      {{post.user.name}} posted on {{format_date post.date_created}}
+    </h6>
+    
+  </div>
+  <div class="card-body">
+    <div class="container d-flex flex-row justify-content-between">
+      <h5 class="card-title pl-2">{{post.title}}</h5>
+      {{!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> --}}
+      <a href="/post/{{post.id}}" class="btn btn-secondary">Read Full Blog Post</a>
+    </div>
+
+  </div>
 </div>
+<br>
 {{/each}}

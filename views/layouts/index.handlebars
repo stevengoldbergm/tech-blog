@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,27 +8,54 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tech Blog!</title>
 
-  <link rel="stylesheet" href="/css/jass.css">
+  {{!-- <link rel="stylesheet" href="/css/jass.css"> --}}
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  {{!-- <link rel="stylesheet" href="assets/css/style.css"> --}}
 </head>
 
 <body>
-  <div class="flex-column justify-space-around">
-    <header class="display-flex justify-space-between align-center p-2">
-      <h1>
-        <a href="/">Tech Blog!</a>
-      </h1>
-      <nav>
-        <a href="/">home</a> |
-        <!-- Conditionally render login or logout links -->
+  {{!-- Add Navbar --}}
+  <nav class="d-flex flex-row navbar navbar-expand-lg navbar-light bg-light justify-content-between">
+    <div class="container p-6">
+      <a class="navbar-brand ml-3" href="/">
+        <h2>
+          Tech Blog!
+        </h2>
+      </a>
+    </div>
+
+    <button class="navbar-toggler mr-5" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse pr-5" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
         {{#if logged_in}}
-        <a href="/dashboard">dashboard</a> |
-        <button class="no-button" id="logout">logout</button>
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Posts</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/dashboard">Dashboard </a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" id="logout" href="/logout">Logout</a>
+        </li>
         {{else}}
-        <a href="/login">login</a>
+        <li>
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Login</a>
+        </li>
         {{/if}}
-      </nav>
-    </header>
+      </ul>
+    </div>
+  </nav>
+{{!-- Navbar End --}}
+
+  <div class="flex-column justify-space-around">
     <main class="container container-fluid mt-5">
       <!-- Render the sub layout -->
       {{{ body }}}
@@ -40,6 +69,10 @@
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
   {{/if}}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
 </body>
 
 </html>

@@ -63,12 +63,10 @@ const newPostHandler = async (event) => {
       if (event.target.hasAttribute('data-id') && event.target.classList.contains("btn-danger")) {
         console.log("DeleteButton")
         delButtonHandler(event);
-      } else {
+      } else if (event.target.hasAttribute('data-id') && event.target.classList.contains("btn-info")) {
         console.log("EditButton")
         editButtonHandler(event);
+      } else {
+        return;
       };
     });
-
-  // document
-  // .querySelector('.post-list')
-  // .addEventListener('click', editButtonHandler);

@@ -1,5 +1,10 @@
 const eventTest = async (event) => {
     event.preventDefault();
+    // Check if login button
+    let loginCheck = event.target.textContent.trim();
+    if (loginCheck === "Log In!") {
+        document.location.replace(`/login`);
+    };
 
     // Pull post ID
     const url = window.location.pathname

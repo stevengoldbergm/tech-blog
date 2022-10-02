@@ -15,6 +15,7 @@
 </div>
 <br>
 
+{{#if logged_in}}
 {{!-- Comment Card Start --}}
 <div class="container px-4">
   <div class="card">
@@ -31,12 +32,31 @@
           <label for="FormControlTextarea1"></label>
           <textarea class="form-control" id="comment-text" rows="3" placeholder="What do you think about this post?"></textarea>
         </div>
-        <button type="submit" class="btn btn-secondary">Post Comment!</button>
+        <button type="submit" href="/login" class="btn btn-secondary">Post Comment!</button>
       </form>
     </div>
   </div>
 </div>
-  
+{{else}}
+<div class="container px-4">
+  <div class="card">
+    <div class="card-header bg-secondary">
+      <h6 class="pl-2 text-light"></h6>
+    </div>
+    <div class="card-body">
+      <div class="container d-flex flex-row justify-content-between">
+        <h5 class="card-title pl-2">Log in to Leave a Comment!</h5>
+      </div>
+
+      <form class="new-comment-form">
+        <div class="form-group">
+        </div>
+        <button type="submit" href="/login" class="btn btn-secondary">Log In!</button>
+      </form>
+    </div>
+  </div>
+</div>
+{{/if}}
 
 <br>
 

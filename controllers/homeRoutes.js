@@ -123,4 +123,9 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+router.get('/logout', (req, res) => {
+  // If the user has already timed out, redirect the request to home page
+  res.redirect('/');
+});
+
 module.exports = router;

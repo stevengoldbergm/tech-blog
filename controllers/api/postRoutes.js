@@ -68,7 +68,7 @@ router.get('/:id', withAuth, async (req, res) => {
 });
 
 // Update Post
-router.put('/:id', withAuth, async (req, res) => {
+router.put('/:id',  async (req, res) => {
   // Update should look like:
   // {
   //   "title": "Updated Title",
@@ -78,7 +78,7 @@ router.put('/:id', withAuth, async (req, res) => {
     const postData = await Post.update(req.body, {
       where: {
         id: req.params.id,
-        user_id: req.session.user_id, // tested without it
+        // user_id: req.session.user_id, // tested without it
       },
     });
 

@@ -1,12 +1,10 @@
 [
     {
         "title": "First",
-        "text": "First Post.",
-        "user_id": 1
+        "text": "First Post."
     },
     {
         "title": "Second",
-        "text": "I wasn't fast enough. . .",
-        "user_id": 2
+        "text": "I wasn't fast enough. . ."
     }
 ]

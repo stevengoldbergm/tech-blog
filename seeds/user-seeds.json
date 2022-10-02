@@ -2,26 +2,26 @@
     {
         "name": "Steve",
         "email": "steve@test.com",
-        "password": "$2b$10$0UmbwhHQ8fw/5E3xhbAX1OY4drHXd4x2MBuNXYtLqQZgzZ265s0OC"
+        "password": "password"
     },
     {
         "name": "Joeb",
         "email": "joeb@test.com",
-        "password": "$2b$10$h15hHNBAwwAqjuZnANBMGOZMaozgLhjNW1fmzSYYiUY3/xs0.0x5u"
+        "password": "password"
     },
     {
         "name": "Jam",
         "email": "jam@test.com",
-        "password": "$2b$10$2RycLMoCtjyxFU8Bztt.YeZ2oLNU7lpx1KYzlFCphvgAZzK03Ht1W"
+        "password": "password"
     },
     {
         "name": "Dave",
         "email": "dave@test.com",
-        "password": "$2b$10$yKw8m0BTj7tgMaBFI/IzFerIqxqZjnQU2nrTbCtqUapdeKr1heSM2"
+        "password": "password"
     },
     {
         "name": "Winston",
         "email": "winston@test.com",
-        "password": "$2b$10$qMTjZhyZfT1RoY446L50aOfrsq2RZ8wzlAUE4pDOwIhV6nt5w1vgS"
+        "password": "password"
     }
 ]

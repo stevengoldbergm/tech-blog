@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Post, User } = require('../models');
+const { Post, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 const helpers = require('../utils/helpers');
 
@@ -39,15 +39,27 @@ router.get('/post/:id', async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['name'],
+          attributes: { exclude: ['password'] },
+        },
+        {
+          model: Comment,
+          include: [{
+            model: User,
+        }],
         },
       ],
     });
 
     const post = postData.get({ plain: true });
+    const { user, comments } = post;
+    console.log(post);
+    console.log(user);
+    console.log(comments);
 
     res.render('post', {
       ...post,
+      user,
+      comments,
       helpers,
       logged_in: req.session.logged_in
     });

@@ -17,9 +17,9 @@
 
 <body>
   {{!-- Add Navbar --}}
-  <nav class="d-flex flex-row navbar navbar-expand-lg navbar-light bg-light justify-content-between">
+  <nav class="d-flex flex-row navbar navbar-expand-lg navbar-light bg-secondary justify-content-between">
     <div class="container p-6">
-      <a class="navbar-brand ml-3" href="/">
+      <a class="navbar-brand ml-3 text-light" href="/">
         <h2>
           Tech Blog!
         </h2>
@@ -34,20 +34,20 @@
       <ul class="navbar-nav mr-auto">
         {{#if logged_in}}
         <li class="nav-item active">
-          <a class="nav-link" href="/">Posts</a>
+          <a class="nav-link text-light" href="/">Posts</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="/dashboard">Dashboard </a>
+          <a class="nav-link text-light" href="/dashboard">Dashboard </a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" id="logout" href="/logout">Logout</a>
+          <a class="nav-link text-light" id="logout" href="/logout">Logout</a>
         </li>
         {{else}}
         <li>
-          <a class="nav-link" href="/">Home</a>
+          <a class="nav-link text-light" href="/">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/login">Login</a>
+          <a class="nav-link text-light" href="/login">Login</a>
         </li>
         {{/if}}
       </ul>

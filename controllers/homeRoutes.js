@@ -45,6 +45,7 @@ router.get('/post/:id', async (req, res) => {
           model: Comment,
           include: [{
             model: User,
+            attributes: ['name'],
         }],
         },
       ],
@@ -52,8 +53,8 @@ router.get('/post/:id', async (req, res) => {
 
     const post = postData.get({ plain: true });
     const { user, comments } = post;
-    console.log(post);
-    console.log(user);
+    // console.log(post);
+    // console.log(user);
     console.log(comments);
 
     res.render('post', {

@@ -3,6 +3,7 @@
     <h2>Welcome, {{name}}!</h2>
   </div>
 </div>
+<br>
 
 <div class="card">
   <div class="card-header bg-secondary">
@@ -41,10 +42,11 @@
         <th scope="col" class="col-2">Delete</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody class="post-list">
+
       {{!-- For Each --}}
       {{#each posts as |post|}}
-      <tr class="d-flex post-list">
+      <tr class="d-flex">
         <td class="col-8">
           <a href="/post/{{post.id}}">{{post.title}}</a>
         </td>
@@ -57,6 +59,7 @@
       </tr>
       {{!-- /each --}}
       {{/each}}
+
     </tbody>
   </table>
 </div>

@@ -34,18 +34,20 @@ router.get('/', async (req, res) => {
 });
 
 // Get Single Post with associated User and Comments, AND associated comment's user.
-router.get('/:id', async (req, res) => {
+router.get('/:id', withAuth, async (req, res) => {
   try {
     console.log("\n\nstarting\n\n")
     const postData = await Post.findOne({
       include: [
         {
           model: User,
+          attributes: { exclude: ['password'] },
         },
         {
           model: Comment,
           include: {
             model: User,
+            attributes: { exclude: ['password'] },
           }
         }
       ],

@@ -30,7 +30,7 @@ const newPostHandler = async (event) => {
   };
   
   const delButtonHandler = async (event) => {
-    if (event.target.hasAttribute('data-id') && event.target.classList.contains("btn-danger")) {
+    // if (event.target.hasAttribute('data-id') && event.target.classList.contains("btn-danger")) {
       const id = event.target.getAttribute('data-id');
   
       const response = await fetch(`/api/posts/${id}`, {
@@ -42,24 +42,33 @@ const newPostHandler = async (event) => {
       } else {
         alert('Failed to delete post!');
       }
-    }
+    // }
   };
   
   const editButtonHandler = async (event) => {
-    if (event.target.hasAttribute('data-id') && event.target.classList.contains("btn-info")) {
+    // if (event.target.hasAttribute('data-id') && event.target.classList.contains("btn-info")) {
         const id = event.target.getAttribute('data-id');
         document.location.replace(`/posts/edit/${id}`);
-    }
+    // }
   };
 
   document
     .querySelector('.new-post-form')
     .addEventListener('submit', newPostHandler);
   
-  document
-    .querySelector('.post-list')
-    .addEventListener('click', delButtonHandler);
 
   document
-  .querySelector('.post-list')
-  .addEventListener('click', editButtonHandler);
+    .querySelector('.post-list')
+    .addEventListener('click', (event) => {
+      if (event.target.hasAttribute('data-id') && event.target.classList.contains("btn-danger")) {
+        console.log("DeleteButton")
+        delButtonHandler(event);
+      } else {
+        console.log("EditButton")
+        editButtonHandler(event);
+      };
+    });
+
+  // document
+  // .querySelector('.post-list')
+  // .addEventListener('click', editButtonHandler);

@@ -1,6 +1,7 @@
 // Define seeds
 const seedUsers = require("./user-seeds.json");
 const seedPosts = require("./post-seeds.json");
+const seedComments = require("./comment-seeds.json")
 
 // Connect to sequelize through connections
 const sequelize = require("../config/connection");
@@ -18,6 +19,14 @@ const seedDatabase = async () => {
         await Post.create({
             ...post,
             user_id: users[Math.floor(Math.random() * users.length)].id,
+        });
+    };
+
+    for (const comment of seedComments) {
+        await Comment.create({
+            ...comment,
+            user_id: users[Math.floor(Math.random() * users.length)].id,
+            post_id: posts[Math.floor(Math.random() * users.length)].id,
         });
     };
 

@@ -8,14 +8,11 @@ const eventTest = async (event) => {
 
     // Get the Updated Title
     let title = document.getElementById("post-title").value.trim();
-    console.log(title); // Working
+    // console.log(title); // Working
 
     let text = document.getElementById("post-text").value.trim();
 
-    console.log(text); // Working
-
-    let body = JSON.stringify({ title, text });
-    console.log(body);
+    // console.log(text); // Working
 
     const response = await fetch(`/api/posts/${postId}`, {
         method: "PUT",
